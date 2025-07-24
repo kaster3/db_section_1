@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "db-section"
+version = "0.1.0"
+description = ""
+authors = ["Fedorov Semen <FedorovSemen28@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+sqlalchemy = "^2.0.41"
+load-dotenv = "^0.1.0"
+asyncpg = "^0.30.0"
+greenlet = "^3.2.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
