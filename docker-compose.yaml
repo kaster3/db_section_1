@@ -16,8 +16,6 @@ services:
     image: postgres:16.2
     container_name: db
     restart: always
-    ports:
-      - "5432:5432"
     env_file:
       - .template.env.docker
     volumes:
