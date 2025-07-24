@@ -1,12 +1,11 @@
 from datetime import date
 
-from sqlalchemy import String, ForeignKey, Numeric, Text, Date
-from sqlalchemy.orm import mapped_column, Mapped, relationship
+from sqlalchemy import Date, ForeignKey, Numeric, String, Text
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from .base import Base
-from .mixins.pk_id_mixin import IntIdPkMixin
 from .mixins.name_mixin import StrNameMixin
-
+from .mixins.pk_id_mixin import IntIdPkMixin
 
 
 class Genre(IntIdPkMixin, StrNameMixin, Base):
@@ -38,7 +37,8 @@ class Book(IntIdPkMixin, StrNameMixin, Base):
 
 class Client(IntIdPkMixin, StrNameMixin, Base):
     city_id: Mapped[int] = mapped_column(ForeignKey("cities.id"), nullable=False)
-    email: Mapped[str] = mapped_column(String(100)) # можно добавить валидацию или тип из доп библиотеки
+    # можно добавить валидацию или тип из доп библиотеки
+    email: Mapped[str] = mapped_column(String(100))
     # Связи
     city = relationship("City", back_populates="clients")
     buys = relationship("Buy", back_populates="client")

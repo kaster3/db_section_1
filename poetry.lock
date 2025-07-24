@@ -64,6 +64,20 @@ gssauth = ["gssapi", "sspilib"]
 test = ["distro (>=1.9.0,<1.10.0)", "flake8 (>=6.1,<7.0)", "flake8-pyi (>=24.1.0,<24.2.0)", "gssapi", "k5test", "mypy (>=1.8.0,<1.9.0)", "sspilib", "uvloop (>=0.15.3)"]
 
 [[package]]
+name = "autoflake"
+version = "2.3.1"
+description = "Removes unused imports and unused variables"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "autoflake-2.3.1-py3-none-any.whl", hash = "sha256:3ae7495db9084b7b32818b4140e6dc4fc280b712fb414f5b8fe57b0a8e85a840"},
+    {file = "autoflake-2.3.1.tar.gz", hash = "sha256:c98b75dc5b0a86459c4f01a1d32ac7eb4338ec4317a4469515ff1e687ecd909e"},
+]
+
+[package.dependencies]
+pyflakes = ">=3.0.0"
+
+[[package]]
 name = "black"
 version = "25.1.0"
 description = "The uncompromising code formatter."
@@ -612,4 +626,4 @@ test = ["covdefaults (>=2.3)", "coverage (>=7.2.7)", "coverage-enable-subprocess
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "ba586b2603f77d4812863f523c7e9a2784fab53ff5d9cb836b1dd52cc259210a"
+content-hash = "5f0c6cab7051e04195669829dd518f9527b85ff3805c2b0dbf058eebe62cd439"

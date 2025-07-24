@@ -4,12 +4,9 @@ from sqlalchemy.orm import DeclarativeBase, declared_attr
 class Base(DeclarativeBase):
     __abstract__ = True
 
-    # автоматическая генерация имени таблицы на основе название класса (CamelCase -> snake_case)
-    # декоратор показывает что нужно сделать это в момент объявление класса, а не создания экземпляра
     @declared_attr.directive
     def __tablename__(cls) -> str:
         return f"{cls._pluralize(cls._camel_case_to_snake_case(cls.__name__))}"
-
 
     @staticmethod
     def _camel_case_to_snake_case(input_str: str) -> str:
@@ -31,11 +28,7 @@ class Base(DeclarativeBase):
         if word.endswith("y") and len(word) > 1 and word[-2] not in "aeiou":
             return word[:-1] + "ies"  # Например, 'city' -> 'cities'
         elif (
-                word.endswith("s")
-                or word.endswith("x")
-                or word.endswith("z")
-                or word.endswith("ch")
-                or word.endswith("sh")
+            word.endswith("s") or word.endswith("x") or word.endswith("z") or word.endswith("ch") or word.endswith("sh")
         ):
             return word + "es"  # Например, 'bus' -> 'buses', 'box' -> 'boxes'
         else:
